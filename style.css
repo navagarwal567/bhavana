@@ -1,0 +1,81 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;font-family:'Poppins',sans-serif}
+body{min-height:100vh;overflow:hidden;position:relative;background:linear-gradient(135deg,#fff7f5,#ffe4ec,#ffdce6)}
+button{font-family:'Poppins',sans-serif}
+.background{position:fixed;inset:0;background:radial-gradient(circle at top,rgba(255,255,255,.7),transparent 60%);z-index:0}
+#light{position:fixed;left:50%;top:60%;width:250px;height:250px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,215,0,.95),rgba(255,215,0,.35),transparent 70%);opacity:0;pointer-events:none;transition:1.5s;z-index:1}
+#light.active{opacity:1;transform:translate(-50%,-50%) scale(5)}
+#sparkles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
+.spark{position:absolute;width:8px;height:8px;border-radius:50%;background:gold;box-shadow:0 0 15px gold;animation:spark 2s linear forwards}
+@keyframes spark{0%{opacity:0;transform:translateY(0) scale(.2)}20%{opacity:1}100%{opacity:0;transform:translateY(-250px) scale(1.5)}}
+
+.hero{position:relative;z-index:2;width:100%;max-width:900px;padding:30px;text-align:center;transition:1s}
+.tag{letter-spacing:5px;text-transform:uppercase;color:#9d6b7b;font-size:14px;margin-bottom:25px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:700;color:#633b48;line-height:1.1}
+.subtitle{margin-top:30px;font-size:20px;color:#7d5864}
+.gift{margin-top:60px;display:flex;justify-content:center;align-items:center}
+#gift{width:260px;animation:float 3s ease-in-out infinite;transition:1s;filter:drop-shadow(0 40px 40px rgba(0,0,0,.25));cursor:pointer}
+#gift.opening{animation:none;transform:translateY(-40px) scale(1.18);filter:drop-shadow(0 0 25px gold) drop-shadow(0 0 80px gold)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+button{margin-top:45px;padding:18px 45px;border:none;border-radius:60px;font-size:18px;cursor:pointer;background:#c08497;color:white;transition:.4s;box-shadow:0 15px 35px rgba(192,132,151,.35)}
+button:hover{transform:translateY(-5px);box-shadow:0 25px 45px rgba(192,132,151,.45)}
+button:disabled{opacity:.65;cursor:default}
+
+#welcome{display:none;position:fixed;inset:0;width:100vw;height:100vh;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#fffaf7,#ffe8ef,#ffdfe9);z-index:1000}
+#welcome.show{display:flex;animation:fadeUp .8s ease}
+.welcome-content{width:90%;max-width:700px;padding:40px}
+#welcome h1{font-family:'Cormorant Garamond',serif;font-size:72px;color:#74495c}
+#welcome h2{margin-top:15px;font-family:'Cormorant Garamond',serif;font-size:42px;color:#b26d86}
+#welcome p{margin-top:25px;font-size:20px;line-height:1.8;color:#7a5b67}
+
+#heroPhoto{display:none;position:fixed;inset:0;width:100vw;height:100vh;overflow:hidden;justify-content:center;align-items:center;z-index:1001}
+#heroPhoto.show{display:flex;animation:fadeUp .8s ease}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.35);animation:zoomPhoto 18s ease forwards}
+.hero-overlay{position:relative;z-index:5;text-align:center;color:white;max-width:900px;padding:30px}
+.hero-tag{letter-spacing:5px;text-transform:uppercase;font-size:16px;color:white;margin-bottom:20px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:92px;color:white;margin-bottom:25px}
+.hero-text{font-size:24px;line-height:1.8;margin-bottom:45px}
+#letterBtn{padding:20px 60px;border:1px solid rgba(255,255,255,.3);border-radius:60px;background:rgba(255,255,255,.12);backdrop-filter:blur(12px);color:white;cursor:pointer}
+#letterBtn:hover{background:rgba(255,255,255,.2)}
+@keyframes zoomPhoto{from{transform:scale(1)}to{transform:scale(1.08)}}
+
+#letterSection{display:none;position:fixed;inset:0;width:100vw;height:100vh;background:linear-gradient(135deg,#fff8f6,#ffe7ef,#ffe0e8);justify-content:center;align-items:center;z-index:1002;padding:24px}
+#letterSection.show{display:flex;animation:fadeUp .8s ease}
+.letter-card{width:700px;max-width:94%;text-align:center}
+.letter-card h1{font-family:'Cormorant Garamond',serif;font-size:58px;color:#7b4258;margin-bottom:10px}
+.letter-subtitle{font-size:20px;color:#8b6271;margin-bottom:30px}
+.letter-box{background:linear-gradient(180deg,#fffdfb,#fff7f8);border:1px solid rgba(192,132,151,.25);border-radius:24px;padding:50px;text-align:left;max-height:68vh;overflow-y:auto;box-shadow:0 25px 60px rgba(0,0,0,.12)}
+.letter-box h2{font-family:'Cormorant Garamond',serif;font-size:42px;color:#b15d78;margin-bottom:25px}
+.letter-box p{font-size:18px;line-height:2.1;color:#5c5054;letter-spacing:.2px}
+.signature{margin-top:45px;text-align:right;color:#8d4f67;font-size:22px}
+.signature span{font-family:'Great Vibes',cursive;font-size:58px;color:#b14f73;display:inline-block;margin-top:8px}
+#finalBtn{display:block;margin:38px auto 0;background:linear-gradient(135deg,#c08497,#a85c78)}
+.letter-box::-webkit-scrollbar{width:8px}.letter-box::-webkit-scrollbar-thumb{background:#c08497;border-radius:20px}.letter-box::-webkit-scrollbar-track{background:#f8edf1}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+#finalSection{display:none;position:fixed;inset:0;width:100vw;height:100vh;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:radial-gradient(circle at center,#6d3fa9 0%,#47256b 45%,#24113b 100%);color:#fff;z-index:2000}
+#finalSection.show{display:flex;animation:fadeUp 1s ease}
+.final-content{position:relative;z-index:10;width:90%;max-width:900px}
+.final-content h1{font-family:'Cormorant Garamond',serif;font-size:64px}
+.final-content h2{font-family:'Cormorant Garamond',serif;font-size:42px;margin:10px 0 20px}
+.final-content>p{font-size:22px;line-height:1.8}
+.final-tag{letter-spacing:3px;text-transform:uppercase;font-size:12px!important;color:#f0d8a4;margin-bottom:15px}
+.heart-message{margin:30px 0}.final-content .signature{text-align:center;color:#fff;margin-top:30px}
+.final-content .signature span{color:#ffdca0}
+#replayBtn{margin-top:35px;background:linear-gradient(135deg,#ff8a00,#ff4d6d)}
+#confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.lanterns{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.lantern{position:absolute;bottom:-120px;width:40px;height:65px;border-radius:12px;background:linear-gradient(#ffd54f,#ff9800);box-shadow:0 0 30px rgba(255,180,0,.8);animation:floatLantern 14s linear infinite}
+.lantern:nth-child(1){left:10%;animation-delay:0s}.lantern:nth-child(2){left:30%;animation-delay:3s}.lantern:nth-child(3){left:50%;animation-delay:6s}.lantern:nth-child(4){left:70%;animation-delay:9s}.lantern:nth-child(5){left:90%;animation-delay:12s}
+@keyframes floatLantern{0%{transform:translateY(0) scale(.8);opacity:0}20%{opacity:1}100%{transform:translateY(-120vh) scale(1.15);opacity:0}}
+#fireflies{position:absolute;inset:0;pointer-events:none}
+#fireflies span{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff59d;box-shadow:0 0 15px #ffe082;animation:blink 4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.4)}}
+
+@media(max-width:768px){
+body{overflow:hidden}.hero{padding:20px}.hero h1{font-size:43px}.tag{font-size:11px;letter-spacing:3px}.subtitle{font-size:17px;line-height:1.6}.gift{margin-top:35px}#gift{width:185px}button{width:90%;max-width:300px;padding:16px 25px;font-size:16px}
+#welcome h1{font-size:44px;line-height:1}.welcome-content{padding:20px}.welcome-content h2{font-size:30px}.welcome-content p{font-size:17px;line-height:1.7}
+.hero-overlay{padding:20px}.hero-title{font-size:52px}.hero-text{font-size:18px;line-height:1.6;margin-bottom:25px}.hero-tag{font-size:11px;letter-spacing:3px}
+#letterSection{padding:16px}.letter-card{max-width:100%}.letter-card h1{font-size:42px}.letter-subtitle{font-size:16px;margin-bottom:18px}.letter-box{padding:25px 20px;max-height:68vh;border-radius:20px}.letter-box h2{font-size:32px}.letter-box p{font-size:16px;line-height:1.85}.signature{font-size:18px}.signature span{font-size:50px}
+#finalSection{padding:20px}.final-content h1{font-size:40px}.final-content h2{font-size:32px}.final-content>p{font-size:18px}.heart-message{font-size:16px!important}.final-content .signature{font-size:18px}
+}
